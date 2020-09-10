@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assumptions.assumingThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class GradingStudentsTest {
@@ -20,14 +20,11 @@ public class GradingStudentsTest {
 
     @ParameterizedTest(name = "Calculation grades from {0} to {1}.")
     @MethodSource("testData")
-    @EnabledOnOs({OS.MAC})
+    @EnabledOnOs({OS.MAC, OS.WINDOWS})
     public void gradingStudentsTest(List<Integer> input, List<Integer> expectedOutput) {
-        assumingThat((input != null && input.size() > 0),
-                () -> {
-                    assertEquals(expectedOutput, gradingStudents.gradingStudents(input));
-                });
-        assertTrue(input != null && input.size() > 0, "Input list of grades is blank!");
-        assertTrue(expectedOutput != null && expectedOutput.size() > 0, "Expected output list of grades is blank!");
+        assertNotNull(input);
+        assertTrue(input.size() > 0);
+        assertEquals(expectedOutput, gradingStudents.gradingStudents(input));
     }
 
     private static Stream<Arguments> testData() {
