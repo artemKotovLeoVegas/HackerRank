@@ -1,8 +1,6 @@
 package com.project;
 
 import com.google.common.collect.Lists;
-import org.junit.jupiter.api.condition.EnabledOnOs;
-import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,7 +18,6 @@ public class GradingStudentsTest {
 
     @ParameterizedTest(name = "Calculation grades from {0} to {1}.")
     @MethodSource("testData")
-    @EnabledOnOs({OS.MAC, OS.WINDOWS})
     public void gradingStudentsTest(List<Integer> input, List<Integer> expectedOutput) {
         assertNotNull(input);
         assertTrue(input.size() > 0);

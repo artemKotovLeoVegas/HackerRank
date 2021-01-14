@@ -2,7 +2,7 @@ package com.project;
 
 public class CountingValleys {
     /**
-     * https://www.hackerrank.com/challenges/counting-valleys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+     * https://www.hackerrank.com/challenges/counting-valleys/problem
      */
     public int countingValleys(int n, String s) {
         int valleysCount = 0;
