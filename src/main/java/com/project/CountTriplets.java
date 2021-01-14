@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CountTriplets {
-    /**
+    /** WIP
      * https://www.hackerrank.com/challenges/count-triplets-1/problem
      */
 

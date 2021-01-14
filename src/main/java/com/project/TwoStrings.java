@@ -12,14 +12,11 @@ public class TwoStrings {
      */
 
     public String twoStrings(String s1, String s2) {
-        List<String> list1 = new ArrayList<>(Arrays.asList(s1.split("")));
-        Set<String> list2 = new HashSet<>(Arrays.asList(s2.split("")));
+        List<String> list = new ArrayList<>(Arrays.asList(s1.split("")));
+        Set<String> set = new HashSet<>(Arrays.asList(s2.split("")));
 
-        for (int i = 0; i < list1.size(); i++) {
-            if (list2.size() <= i) {
-                break;
-            }
-            if (list2.contains(list1.get(i))) {
+        for (int i = 0; i < list.size(); i++) {
+            if (set.contains(list.get(i))) {
                 return "YES";
             }
         }

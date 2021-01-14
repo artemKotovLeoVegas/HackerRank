@@ -9,7 +9,7 @@ public class CountingValleys {
         int stepsUpAtSeaLevel = 0;
         int stepsDownAtSeaLevel = 0;
         boolean isValleyStarted = false;
-        for (String step: s.split("(?!^)")) {
+        for (String step : s.split("(?!^)")) {
             if (step.equalsIgnoreCase("u")) {
                 stepsUpAtSeaLevel++;
             } else {
@@ -20,7 +20,8 @@ public class CountingValleys {
                 isValleyStarted = true;
             }
             if (stepsUpAtSeaLevel == stepsDownAtSeaLevel) {
-                stepsUpAtSeaLevel = 0; stepsDownAtSeaLevel = 0;
+                stepsUpAtSeaLevel = 0;
+                stepsDownAtSeaLevel = 0;
                 isValleyStarted = false;
             }
         }

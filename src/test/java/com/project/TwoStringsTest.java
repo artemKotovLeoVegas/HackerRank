@@ -19,6 +19,7 @@ public class TwoStringsTest {
     public void gradingStudentsTest(String str1, String str2, String expectedOutput) {
         assertNotNull(str1);
         assertNotNull(str2);
+        assertNotNull(expectedOutput);
         assertEquals(expectedOutput, twoStrings.twoStrings(str1, str2));
     }
 

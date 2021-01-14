@@ -26,7 +26,8 @@ public class PairsTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 arguments(2, new int[]{1, 5, 3, 4, 2}, 3),
-                arguments(1, new int[]{1, 5, 3, 2}, 2)
+                arguments(1, new int[]{1, 5, 3, 2}, 2),
+                arguments(0, new int[]{1, 2, 3}, 3)
         );
     }
 }
