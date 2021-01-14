@@ -1,22 +1,27 @@
 package com.project;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-import java.util.stream.Stream;
 
 public class TwoStrings {
     /**
-     https://www.hackerrank.com/challenges/two-strings/problem
+     * https://www.hackerrank.com/challenges/two-strings/problem
      */
 
     public String twoStrings(String s1, String s2) {
-        String[] bothStrings = Stream.concat(Arrays.stream(s1.split("")), Arrays.stream(s2.split("")))
-                .toArray(String[]::new);
-        Set<String> set = new HashSet<String>(Arrays.asList(bothStrings));
+        List<String> list1 = new ArrayList<>(Arrays.asList(s1.split("")));
+        Set<String> list2 = new HashSet<>(Arrays.asList(s2.split("")));
 
-        if (set.size() < bothStrings.length) {
-            return "YES";
+        for (int i = 0; i < list1.size(); i++) {
+            if (list2.size() <= i) {
+                break;
+            }
+            if (list2.contains(list1.get(i))) {
+                return "YES";
+            }
         }
         return "NO";
     }

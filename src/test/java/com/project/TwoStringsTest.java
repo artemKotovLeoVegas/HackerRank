@@ -25,7 +25,10 @@ public class TwoStringsTest {
     private static Stream<Arguments> testData() {
         return Stream.of(
                 arguments("hello", "world", "YES"),
-                arguments("hi", "world", "NO")
+                arguments("hi", "world", "NO"),
+                arguments("wouldyoulikefries", "abcabcabcabcabcabc", "NO"),
+                arguments("writetoyourparents", "fghmqzldbc", "NO"),
+                arguments("hackerrankcommunity", "cdecdecdecde", "YES")
         );
     }
 }
