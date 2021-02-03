@@ -5,7 +5,7 @@ public class CountingValleys {
      * https://www.hackerrank.com/challenges/counting-valleys/problem
      */
     public int countingValleys(int n, String s) {
-        int valleysCount = 0;
+        /*int valleysCount = 0;
         int stepsUpAtSeaLevel = 0;
         int stepsDownAtSeaLevel = 0;
         boolean isValleyStarted = false;
@@ -23,6 +23,20 @@ public class CountingValleys {
                 stepsUpAtSeaLevel = 0;
                 stepsDownAtSeaLevel = 0;
                 isValleyStarted = false;
+            }
+        }
+        return valleysCount;*/
+
+        int valleysCount = 0;
+        int stepsUpAtSeaLevel = 0;
+        for (char step : s.toCharArray()) {
+            if (step == 'U') {
+                stepsUpAtSeaLevel++;
+            } else {
+                stepsUpAtSeaLevel--;
+            }
+            if (stepsUpAtSeaLevel == 0 && step == 'U') {
+                valleysCount++;
             }
         }
         return valleysCount;

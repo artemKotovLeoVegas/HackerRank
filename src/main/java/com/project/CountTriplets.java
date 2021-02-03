@@ -1,11 +1,12 @@
 package com.project;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CountTriplets {
-    /** WIP
+    /**
+     * WIP
      * https://www.hackerrank.com/challenges/count-triplets-1/problem
      */
 
@@ -39,29 +40,23 @@ public class CountTriplets {
             }
         }*/
 
-        for (int index = 0; index < arr.size(); index++) {
-            List<Long> triple = new ArrayList(Arrays.asList(arr.get(index)));
-            long nextValueForTriple = arr.get(index) * r;
-            int duplicates = 0;
-            for (int i = (index + 1); i < arr.size(); i++) {
-                if (arr.get(i).longValue() == triple.get(triple.size() - 1)) {
-                    duplicates++;
-                    if (nextValueForTriple != arr.get(i)) {
-                        continue;
-                    }
-                }
-                if (arr.get(i) == nextValueForTriple) {
-                    triple.add(arr.get(i));
-                    nextValueForTriple = nextValueForTriple * r;
-                }
-                if (triple.size() == 3) {
-                    tripletsCount++;
-                    if (duplicates >= 0) {
-                        tripletsCount += duplicates;
-                    }
-                    break;
-                }
+        Map<Long, Long> count = new HashMap<>(); // count of ints
+        Map<Long, Long> tuplets = new HashMap<>(); // map 2nd -> count of links
+
+        for (int i = 0; i < arr.size(); ++i) {
+            long val = arr.get(i);
+            if (val % r == 0 && tuplets.containsKey(val / r)) {
+                tripletsCount += tuplets.get(val / r);
             }
+            if (tuplets.containsKey(val)) {
+                tuplets.put(val, tuplets.get(val) + count.get(val / r));
+            } else if (val % r == 0 && count.containsKey(val / r)) {
+                tuplets.put(val, count.get(val / r));
+            }
+            if (count.containsKey(val))
+                count.put(val, count.get(val) + 1);
+            else
+                count.put(val, 1L);
         }
 
         return tripletsCount;
